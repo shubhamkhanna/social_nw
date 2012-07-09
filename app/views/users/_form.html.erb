@@ -1,0 +1,38 @@
+
+
+<%= form_for(@user,:url => {:controller => "users",:action => "edit_profile"},:html => { :multipart => true } ) do |f| %>
+
+
+<h4>Personal Details</h4>
+
+     <b> attachment </b><br/>
+      <%= f.file_field :avtar %><br/>
+
+
+<div><%= f.label :firstname %><br />
+  <%= f.text_field :firstname %></div>
+<div><%= f.label :middlename %><br />
+  <%= f.text_field :middlename %></div>
+<div><%= f.label :lastname %><br />
+  <%= f.text_field :lastname %></div>
+<div><%= f.label :age %><br />
+  <%= f.text_field :age %></div>
+<div><%= f.label :DOB %><br />
+  <%= f.text_field :dob %></div>
+<h4>Contact Details</h4>
+<div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+<div><%= f.label :Ph_No %><br />
+  <%= f.text_field :phno %></div>
+<div><%= f.label :Address %><br />
+  <%= f.text_field :address %></div>
+<h4>Educational and Professional Details </h4>
+<div><%= f.label "School/ Co_name" %><br />
+  <%= f.text_field :sconame %></div>
+  <div><%= f.label "School/ Co address" %><br />
+  <%= f.text_field :scoaddress %></div>
+<div><%= f.submit "Submit" %></div>
+ <%=link_to "Change Password",change_password_path(current_user.id)%>
+<% end %>
+
+

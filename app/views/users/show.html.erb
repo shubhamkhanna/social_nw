@@ -1,0 +1,28 @@
+
+<table align="center" border="0">
+
+<h1>Your Profile</h1>
+
+  <tr>
+   <%=image_tag current_user.avtar.url(:thumb) %> <br/><br/>
+            
+
+    <td>First Name:<%= @user.firstname %><br/>
+     Middle Name:<%= @user.middlename %><br/>
+     Last Name:<%= @user.lastname %><br/>
+     Age:<%= @user.age %><br/>
+     DOB:<%= @user.dob %><br/>
+     Email: <%= @user.email %><br/>
+     Phone No.:<%= @user.phno %><br/>
+     Address:   <%= @user.address %><br/>
+     School/Co.Name<%= @user.sconame %><br/>
+     School/Co. Address<%= @user.scoaddress %><br/></td>
+
+  <%=link_to "Edit",edit_profile_path(current_user.id)%><br/>
+<%=link_to "log out",destroy_user_session_path,:method=>:delete %>
+</tr>
+
+
+
+</table>
+

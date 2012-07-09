@@ -1,0 +1,20 @@
+
+<table border="0" width="1000" bgcolor="cornflowerblue">
+  <tr>
+<td><%=image_tag(current_user.avtar.url(:thumb))%></td>
+
+<td align="right">
+<th style="font-size: 50px ">Welcome
+  <%=current_user.firstname%>
+  </th>
+  </b>
+  </td>
+  </tr>
+
+</table>
+
+
+<%= link_to "Edit profile", edit_profile_path(current_user.id) %><br/><br/>
+<%= link_to "All Users", all_user_path(current_user.id) %>
+<%= link_to "All Friends", all_friends_path(current_user.id) %>
+<%#= link_to "Logout", logout_path, :method => :delete %>
