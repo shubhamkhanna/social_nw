@@ -1,4 +1,16 @@
 SocialNw::Application.routes.draw do
+  get "home/index"
+  get "friends/all_friends"
+  match "users/edit_profile/:id" => "users#edit_profile", :as => "edit_profile"
+  match "users/show/:id" => "users#show", :as => "show_profile"
+  match "users/change_password/:id" => "users#change_password", :as => "change_password"
+  match "users/all_user/:id" => "users#all_user", :as => "all_user"
+  match "friends/add_friends/:id" => "friends#add_friends", :as => "add_friends"
+ match "friends/all_friends/:id" => "friends#all_friends", :as => "all_friends"
+  #match "users/show" => "users#show"
+  #match "home/index" => "home#index"
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,11 +60,11 @@ SocialNw::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+ match ':controller(/:action(/:id))(.:format)'
 end
