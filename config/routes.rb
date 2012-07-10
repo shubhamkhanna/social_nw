@@ -1,7 +1,9 @@
 SocialNw::Application.routes.draw do
   get "home/index"
   get "friends/all_friends"
+  
   match "users/edit_profile/:id" => "users#edit_profile", :as => "edit_profile"
+  match "friends/mutual/:id"=>"friends#mutual",:as=>"mutual_profile"
   match "users/show/:id" => "users#show", :as => "show_profile"
   match "users/change_password/:id" => "users#change_password", :as => "change_password"
   match "users/all_user/:id" => "users#all_user", :as => "all_user"

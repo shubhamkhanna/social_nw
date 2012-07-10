@@ -1,0 +1,10 @@
+<h1>Your Profile</h1>
+
+
+<%=  render 'users/profile',:object=>@user%>
+<h1>Mutual Friends</h1>
+
+<%@mutual_friends.each do |mutual|%>
+<%=mutual.firstname%><br/>
+<%=mutual.id%><br/>
+<%end%>

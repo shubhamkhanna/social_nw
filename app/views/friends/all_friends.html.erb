@@ -1,10 +1,15 @@
-<h1>All Friends</h1>
-<table align="center">
+
+
+
+<table>
+
+<th1>All Friends</th1>
 
 <%@friends.each do |friend|%>
 <td><%=image_tag(friend.avtar.url(:thumb))%>
-<%=friend.firstname%>
- <%=friend.lastname%><br/>
-  
+<%=link_to friend.firstname+" "+friend.lastname,mutual_profile_path(friend.id)%><br/>
+  <%@cnt=@friends.count%>
  </tr>
 <%end%>
+<th2>(<%=@cnt%>)</th2><br/><br/>
+ </table>

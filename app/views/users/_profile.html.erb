@@ -1,0 +1,26 @@
+
+
+
+
+<table align="center" border="0" cellpadding="100">
+  <tr>
+  <td> <%=image_tag @user.avtar.url(:medium) %> </td>
+   
+ <td>
+     Name:<%= @user.firstname+" "+@user.middlename+" "+@user.lastname %><br/><br/>
+     Age:<%= @user.age %>
+     DOB:<%= @user.dob %><br/><br/>
+     Email: <%= @user.email %><br/>
+     Phone No.:<%= @user.phno %><br/>
+     Address:   <%= @user.address %><br/><br/>
+     School/Co.Name:<%= @user.sconame %>
+     School/Co. Address:<%= @user.scoaddress %><br/><br/>
+
+ 
+</td>
+ </tr>
+
+
+
+</table>
+

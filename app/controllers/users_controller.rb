@@ -35,4 +35,6 @@ users << current_user.friends.map(&:friend_id)
 users.flatten!
   @users=User.where(["id NOT IN (?)",(users)])
 end
+
+
 end
