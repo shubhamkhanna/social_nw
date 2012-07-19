@@ -14,9 +14,7 @@ def all_friends
 end
 def mutual
   @user= User.find(params[:id])
-
- 
- users = []
+users = []
 users << current_user.id
 users << @user.id
 users.flatten!
@@ -25,7 +23,7 @@ puts users.inspect
  # @mutual_friends=User.find_by_sql("select firstname,lastname from users where id IN (select friend_id from friends where user_id IN(users) group by friend_id);
 #")
   @mutual_friends=User.select('u.firstname,u.id').where(['f.user_id IN (?)',(users)]).
-    joins('as u inner join friends as f ON f.friend_id=u.id').group('friend_id HAVING COUNT(friend_id) >=2')
+  joins('as u inner join friends as f ON f.friend_id=u.id').group('friend_id HAVING COUNT(friend_id) >=2')
 
 end
 

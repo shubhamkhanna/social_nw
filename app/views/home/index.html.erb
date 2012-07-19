@@ -1,20 +1,36 @@
+<div>
+  <table border="0" width="1000" bgcolor="cornflowerblue">
+    <tr>
+      <td><%=image_tag(current_user.avtar.url(:thumb))%></td>
 
-<table border="0" width="1000" bgcolor="cornflowerblue">
-  <tr>
-<td><%=image_tag(current_user.avtar.url(:thumb))%></td>
+      <td align="right">
+      <th style="font-size: 50px ">Welcome
+        <%=current_user.firstname%>
+      </th>
+      </td>
+    </tr>
 
-<td align="right">
-<th style="font-size: 50px ">Welcome
-  <%=current_user.firstname%>
-  </th>
-  </b>
-  </td>
-  </tr>
+  </table><br/><br/>
+</div>
+<div style="float:left;width:30%">
+  <%= link_to "Edit profile", edit_profile_path(current_user.id) %><br/><br/>
+  <%= link_to "All Users", all_user_path(current_user.id) %><br/><br/>
+  <%= link_to "All Friends", all_friends_path(current_user.id) %><br/><br/>
+  <%= link_to "log out",destroy_user_session_path,:method=>:delete %>
+</div>
 
-</table>
+<div style="float:right;width:70%">
+  <%=form_for @post,:url=>{:action=>"index"},:remote=>true do |u|%>
+    <%=u.hidden_field :user_id,:value=>current_user.id,:method=>:post%>
+    <%=u.text_field :message,:placeholder => 'whats in your mind?',:size=>50%>
+    <%=u.submit :Share%><br/><br>
+  <%end%>
 
+  <div id="posts">
+    <%@posts.each do |post|%>
+      <%= render :partial => "post", :locals => {:post => post} %>
+    <%end%>
+  </div>
 
-<%= link_to "Edit profile", edit_profile_path(current_user.id) %><br/><br/>
-<%= link_to "All Users", all_user_path(current_user.id) %><br/><br/>
-<%= link_to "All Friends", all_friends_path(current_user.id) %>
-<%#= link_to "Logout", logout_path, :method => :delete %>
+</div>
+

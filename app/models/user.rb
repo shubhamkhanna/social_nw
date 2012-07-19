@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   has_many :friends,:foreign_key=>"user_id"
-
+  has_many :posts,  :foreign_key=>"user_id"
+  has_many :comments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
 
@@ -11,5 +12,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,:firstname,:middlename,:lastname, :age, :dob, :phno, :address, :sconame, :scoaddress,:avtar
   # attr_accessible :title, :body
 has_attached_file :avtar, :styles => 
-  { :medium => "300x300>", :thumb => "100x100>" }
+  { :medium => "300x300>", :thumb => "300x300>",:small=>"50x50" }
 end
