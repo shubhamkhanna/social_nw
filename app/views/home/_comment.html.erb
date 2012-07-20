@@ -1,0 +1,9 @@
+<% if comment.user %>
+   <%=comment.user.firstname%>=>
+   <%=comment.comment%><br/>
+ <%#=link_to "like",home_like_path(:like_id=>comment.id,:like_type=>"Comment"), :id =>"comment_like_link_#{comment.id}",:remote=>true%>
+   <div id="comment_like_form_<%=comment.id%>">
+   <%=render :partial=>"like",:locals=>{:post=>comment,:like_type=>"Comment"}%>
+   </div>
+<% end %>
+<br/>

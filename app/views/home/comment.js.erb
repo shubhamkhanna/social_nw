@@ -1,0 +1,4 @@
+alert("successfully")
+$('#comments_count_<%=@comment.post.id %>').html("(<%= @comment.post.comments.count.to_s %>)");
+$('#comment_list_<%= @comment.post.id %>').prepend("<%= escape_javascript(render(:partial => "comment", :locals => {:comment => @comment})) %>");
+$('#comment_form_<%= @comment.post.id %> #comment_comment').val('');

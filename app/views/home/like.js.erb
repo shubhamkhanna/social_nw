@@ -1,0 +1,1 @@
+$('#<%=@like.like_type.downcase%>_like_form_<%=@like.like_id%>').html("<%= escape_javascript(render :partial=>"like",:locals=>{:post => @like.like,:like_type =>@like.like_type})%>");

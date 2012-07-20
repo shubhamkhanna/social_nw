@@ -1,0 +1,11 @@
+<div style="text-align: center">
+  <%= render :partial => "comment_form", :locals => {:comment => @comment, :post_id => params[:post_id]}  %>
+
+  <div id="comments">
+    <%@post.comments.each do |cmt|%>
+       <%= render :partial => "comment", :locals => {:comment => cmt} %>
+    <%end%>
+  </div>
+
+
+</div>

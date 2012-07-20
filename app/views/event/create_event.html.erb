@@ -1,0 +1,15 @@
+<h1>Create Event</h1>
+<%=form_for(@event,:url=>{:controller=>"event",:action=>"create_event"}) do |event| %>
+<%=event.label :Event_Name%>
+<%=event.text_field :name%><br/><br/>
+<%=event.label :Location%>
+<%=event.text_field :location%><br/><br/>
+<%=event.label :Started_at%>
+<%=event.text_field :started_at%><br/><br/>
+<%=event.label :Ended_at%>
+<%=event.text_field :ended_at%><br/><br/>
+<%=event.hidden_field :creator_id,:value=>current_user.id,:method=>:post%>
+<%=event.submit "Create_Event"%><br/><br/>
+<%=link_to "select friends",select_friends_path%>
+<%end%>
+

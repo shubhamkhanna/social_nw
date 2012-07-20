@@ -11,7 +11,11 @@ SocialNw::Application.routes.draw do
   match "friends/all_friends/:id" => "friends#all_friends", :as => "all_friends"
   match "home/like" => "home#like", :as => "home_like"
   match "home/unlike/:id" => "home#unlike", :as => "home_unlike"
+  match "home/like_people/:like_id" => "home#like_people", :as => "people"
 
+  match "event/create_event" => "event#create_event", :as=>"create_event"
+
+  match "event/select_friends" => "event#select_friends", :as=>"select_friends"
   #  match "home/comment/:post_id" =>"home#comment", :as =>"comment"
   #match "users/show" => "users#show"
   #match "home/index" => "home#index"

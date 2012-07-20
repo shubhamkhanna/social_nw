@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
 
+  has_many :likes
+  has_many :events,:foreign_key=>"creator_id"
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,:firstname,:middlename,:lastname, :age, :dob, :phno, :address, :sconame, :scoaddress,:avtar
   # attr_accessible :title, :body

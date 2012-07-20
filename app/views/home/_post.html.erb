@@ -1,0 +1,31 @@
+<%=post.user.firstname%>=>
+<%=post.message%><br/>
+<%=link_to "comments", "#", :id => "comment_link_#{post.id}" %>
+<span id="comments_count_<%= post.id %>">(<%=post.comments.count%>)</span>
+<span id="post_like_form_<%=post.id%>">
+<%=render :partial=>"like",:locals=>{:post=>post,:like_type=>"Post"}%>
+</span>
+
+
+<div id="comment_form_<%= post.id %>" style="display: none">
+  <%= render :partial => "comment_form", :locals => {:comment => post.comments.build, :post_id => post.id}  %>
+</div>
+<h4>Comments</h4>
+<div id="comment_list_<%= post.id %>" style="display:none">
+  <% post.comments.each do |cmt|%>
+    <%=render(:partial => "comment", :locals => {:comment => cmt}) %>
+   
+<% end %>
+</div>
+
+<script type="text/javascript">
+      $(document).ready(function() {
+      $("#comment_link_<%=post.id%>").click(function(){
+      $("#comment_list_<%=post.id%>").toggle();
+      $("#comment_form_<%=post.id%>").toggle();
+     });
+  });
+</script>
+
+
+<hr></hr>

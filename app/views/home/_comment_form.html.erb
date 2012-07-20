@@ -1,0 +1,6 @@
+<%=form_for comment,:url=>{:action=>"comment"},:remote=>true do |c|%>
+  <%=c.hidden_field :user_id,:value=>current_user.id,:method=>:post%>
+  <%=c.hidden_field :post_id,:value=>post_id,:method=>:post%>
+  <%=c.text_field :comment,:placeholder => 'any comment...'%>
+  <%=c.submit :Comment%><br/>
+<%end%>
