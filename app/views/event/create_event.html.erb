@@ -9,7 +9,24 @@
 <%=event.label :Ended_at%>
 <%=event.text_field :ended_at%><br/><br/>
 <%=event.hidden_field :creator_id,:value=>current_user.id,:method=>:post%>
-<%=event.submit "Create_Event"%><br/><br/>
-<%=link_to "select friends",select_friends_path%>
+<%#=link_to "select friends",select_friends_path%>
+<table>
+
+<th1>All Friends</th1>
+<tr>
+  <td>
+    <div style="overflow: scroll;height: 300px;width: 600px">
+ <%@friends.each do |friend|%>
+<%=render :partial=>"friends/all_friends",:locals=>{:friend=>friend}%>
+<%=fields_for "event[eventusers_attributes][]",Eventuser.new do |field|%>
+<%=field.check_box :user_id,{},friend.id%>
+<%end%>
+    <%end%>
+</div>
+    </td>
+</tr>
+<th2>(<%=@cnt%>)</th2><br/><br/>
+ </table>
+<div align="center"><br/><%=event.submit "Create Event"%><br/></div>
 <%end%>
 

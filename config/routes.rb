@@ -15,7 +15,7 @@ SocialNw::Application.routes.draw do
 
   match "event/create_event" => "event#create_event", :as=>"create_event"
 
-  match "event/select_friends" => "event#select_friends", :as=>"select_friends"
+  match "event/event_list" => "event#event_list", :as=>"event_list"
   #  match "home/comment/:post_id" =>"home#comment", :as =>"comment"
   #match "users/show" => "users#show"
   #match "home/index" => "home#index"

@@ -16,7 +16,7 @@
   <%= link_to "Edit profile", edit_profile_path(current_user.id) %><br/><br/>
   <%= link_to "All Users", all_user_path(current_user.id) %><br/><br/>
   <%= link_to "All Friends", all_friends_path(current_user.id) %><br/><br/>
-  <%= link_to "Events",create_event_path %><br/><br/>
+  <%= link_to "Events",event_list_path %><br/><br/>
   <%= link_to "log out",destroy_user_session_path,:method=>:delete %>
 </div>
 
