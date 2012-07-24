@@ -5,9 +5,9 @@
 <%=event.label :Location%>
 <%=event.text_field :location%><br/><br/>
 <%=event.label :Started_at%>
-<%=event.text_field :started_at%><br/><br/>
+<%=event.datetime_picker :started_at,:dateFormat => "yy-mm-dd"%><br/><br/>
 <%=event.label :Ended_at%>
-<%=event.text_field :ended_at%><br/><br/>
+<%=event.datetime_picker :ended_at,:dateFormat=>"yy-mm-dd"%><br/><br/>
 <%=event.hidden_field :creator_id,:value=>current_user.id,:method=>:post%>
 <%#=link_to "select friends",select_friends_path%>
 <table>

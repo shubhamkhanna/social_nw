@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
 
   has_many :likes
-  has_many :events,:foreign_key=>"creator_id"
+  has_many :events,:foreign_key=>"creator_id",:through=>:eventusers
   has_many :eventusers,:foreign_key=>"user_id"
   accepts_nested_attributes_for :eventusers
   # Setup accessible (or protected) attributes for your model

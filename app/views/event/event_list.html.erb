@@ -1,0 +1,27 @@
+
+<div style="text-align: center;">
+  <h2> Events </h2>
+</div>
+<br />
+<table style="background-color: wheat" cellpadding="5">
+  <tr >
+    <th>Event by</th>
+    <th>Event name</th>
+    <th>Location</th>
+    <th>Started at</th>
+    <th>Ended at </th>
+  
+  </tr>
+
+<%@event_list.each do |list|%>
+  <tr>
+    <td><%=list.user.firstname%></td>
+    <td><%=list.name%></td>
+    <td><%=list.location%><br/></td>
+    <td><%=list.started_at%></td>
+    <td><%=list.ended_at %></td>
+    <td><%= link_to 'Destroy',{:controller=>"event",:action=>"destroy",:id=>list.eventusers.where("user_id = #{current_user.id}").first.id}, confirm: 'Are you sure?', :method=> :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div align="center"><br/><%=link_to "create new event",create_event_path%><br/></div>
