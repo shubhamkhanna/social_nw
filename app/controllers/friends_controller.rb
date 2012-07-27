@@ -1,4 +1,4 @@
-class FriendsController < ApplicationController
+    class FriendsController < ApplicationController
     def add_friends
     #@friends=User.find(params[:user_id])
     if request.post?

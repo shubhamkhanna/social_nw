@@ -2,37 +2,59 @@
 
 <%= form_for(@user,:url => {:controller => "users",:action => "edit_profile"},:html => { :multipart => true } ) do |f| %>
 
-
+<table cellpadding="30%" border="0">
+  <tr>
+    <td>
 <h4>Personal Details</h4>
+<%= f.label :attachment %><br />
+ <%= f.file_field :avtar %><br/>
+ <%= f.label :firstname %><br />
+  <%= f.text_field :firstname %>
+<%= f.label :middlename %><br />
+  <%= f.text_field :middlename %>
+<%= f.label :lastname %><br />
+  <%= f.text_field :lastname %><br/>
+<%= f.label :age %><br />
+  <%= f.text_field :age %><br/>
+<%= f.label :DOB %><br />
+  <%= f.text_field :dob %><br/>
+</td>
+<td>
+  <h4>Contact Details</h4>
+<%= f.label :email %><br />
+  <%= f.email_field :email %><br/>
+<%= f.label :Ph_No %><br />
+  <%= f.text_field :phno %>
+<%= f.label :Address %><br/>
+  <%= f.text_field :address %><br/><br/>
 
-     <b> attachment </b><br/>
-      <%= f.file_field :avtar %><br/>
+   <h4>Educational and Professional Details </h4>
+<%= f.label "School/ Co_name" %><br />
+  <%= f.text_field :sconame %><br/>
+  <%= f.label "School/ Co address" %><br />
+  <%= f.text_field :scoaddress %>
 
+</td>
+  </tr>
+  <tr>
+<td>
+  <%=link_to "Change Password",change_password_path(current_user.id),:id=>"change_password_link",:remote=>true%>
 
-<div><%= f.label :firstname %><br />
-  <%= f.text_field :firstname %></div>
-<div><%= f.label :middlename %><br />
-  <%= f.text_field :middlename %></div>
-<div><%= f.label :lastname %><br />
-  <%= f.text_field :lastname %></div>
-<div><%= f.label :age %><br />
-  <%= f.text_field :age %></div>
-<div><%= f.label :DOB %><br />
-  <%= f.text_field :dob %></div>
-<h4>Contact Details</h4>
-<div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-<div><%= f.label :Ph_No %><br />
-  <%= f.text_field :phno %></div>
-<div><%= f.label :Address %><br />
-  <%= f.text_field :address %></div>
-<h4>Educational and Professional Details </h4>
-<div><%= f.label "School/ Co_name" %><br />
-  <%= f.text_field :sconame %></div>
-  <div><%= f.label "School/ Co address" %><br />
-  <%= f.text_field :scoaddress %></div>
-<div><%= f.submit "Submit" %></div>
- <%=link_to "Change Password",change_password_path(current_user.id)%>
+<script type="text/javascript">
+    $('#document').ready(function() {
+      $("#change_password_link").click(function(){
+      $("#change_password_form").toggle();
+     });
+    });
+</script>
+  <div id="change_password_form">
+</div>
+
+  </td>
+  </tr>
+
+</table>
+<div style="text-align: center"><%= f.submit "Submit" %></div>
 <% end %>
 
 

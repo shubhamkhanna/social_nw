@@ -13,7 +13,7 @@
   
   </tr>
 
-<%@event_list.each do |list|%>
+<%current_user.receive_events.each do |list|%>
   <tr>
     <td><%=list.user.firstname%></td>
     <td><%=list.name%></td>

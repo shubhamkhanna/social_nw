@@ -9,9 +9,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
 
   has_many :likes
-  has_many :events,:foreign_key=>"creator_id",:through=>:eventusers
-  has_many :eventusers,:foreign_key=>"user_id"
+  has_many :events,:foreign_key=>"creator_id"
+  has_many :receive_events,:source => :event,:through=>:eventusers
+  has_many :eventusers
   accepts_nested_attributes_for :eventusers
+  has_many :shares
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,:firstname,:middlename,:lastname, :age, :dob, :phno, :address, :sconame, :scoaddress,:avtar,:event_id, :user_id
   # attr_accessible :title, :body

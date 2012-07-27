@@ -1,17 +1,27 @@
-<h1>Create Event</h1>
+<div align="center"><h1>Create Event</h1></div>
+
+
+<table  border="0" >
+<tr>
 <%=form_for(@event,:url=>{:controller=>"event",:action=>"create_event"}) do |event| %>
-<%=event.label :Event_Name%>
-<%=event.text_field :name%><br/><br/>
-<%=event.label :Location%>
-<%=event.text_field :location%><br/><br/>
-<%=event.label :Started_at%>
-<%=event.datetime_picker :started_at,:dateFormat => "yy-mm-dd"%><br/><br/>
-<%=event.label :Ended_at%>
-<%=event.datetime_picker :ended_at,:dateFormat=>"yy-mm-dd"%><br/><br/>
+<td><%=event.label :Event_Name%></td>
+<td><%=event.text_field :name%></td>
+<td><%=event.label :Location%></td>
+<td><%=event.text_field :location%></td>
+</tr>
+<tr>
+<td><%=event.label :Started_at%></td>
+<td><%=event.datetime_picker :started_at,:dateFormat => "yy-mm-dd"%></td>
+<td><%=event.label :Ended_at%></td>
+<td><%=event.datetime_picker :ended_at,:dateFormat=>"yy-mm-dd"%></td>
 <%=event.hidden_field :creator_id,:value=>current_user.id,:method=>:post%>
 <%#=link_to "select friends",select_friends_path%>
-<table>
+</tr>
+</table>
+<br/><br/>
+<div align="center"><h2>Add Friends</h2></div>
 
+<table align="center">
 <th1>All Friends</th1>
 <tr>
   <td>

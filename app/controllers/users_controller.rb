@@ -19,8 +19,9 @@ if current_user.valid_password?(params[:user][:old_password])
    if current_user.save
    redirect_to show_profile_path(current_user)
    puts "shubham*********************"
+   flash[:notice]="password changed successfully"
         else
-     render :change_password,:notice=>"password change is unsuccessful"
+     flash[:notice]="password change is unsuccessful"
     end
    end
  end
@@ -34,7 +35,9 @@ users << current_user.id
 users << current_user.friends.map(&:friend_id)
 users.flatten!
   @users=User.where(["id NOT IN (?)",(users)])
+ respond_to  do |format|
+      format.html
+      format.js
+    end
 end
-
-
 end

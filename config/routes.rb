@@ -1,4 +1,4 @@
-SocialNw::Application.routes.draw do
+  SocialNw::Application.routes.draw do
   
   get "friends/all_friends"
   get "home/index"
@@ -17,7 +17,8 @@ SocialNw::Application.routes.draw do
 
   match "event/event_list" => "event#event_list", :as=>"event_list"
   match "event/destroy/:id" => "event#destroy"
-  #  match "home/comment/:post_id" =>"home#comment", :as =>"comment"
+   match "home/share" => "home#share"
+    #  match "home/comment/:post_id" =>"home#comment", :as =>"comment"
   #match "users/show" => "users#show"
   #match "home/index" => "home#index"
   devise_for :users

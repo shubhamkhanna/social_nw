@@ -15,6 +15,20 @@
 	 <title>Inventory</title>
 
 </head>
+<%#if session[:user_id]%>
+<%#*<div style="float:left;width:15%" id="side">%>
+
+ <%#= link_to " Profile", show_profile_path(current_user.id) %>
+  <%#= link_to "Edit profile", edit_profile_path(current_user.id) %>
+  <%#= link_to "All Friends", all_friends_path(current_user.id) %>
+  <%#= link_to "Events",event_list_path %>
+  <%#= link_to "log out",destroy_user_session_path,:method=>:delete %>
+<%#*</div>%>
+<%#end%>
+
+
+
+
 <body>
 
 <%= yield %>

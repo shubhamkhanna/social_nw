@@ -51,9 +51,12 @@ end
 def like_people  
  @like_id=params[:like_id]
   @like_people=User.select("firstname").where(['likes.like_id = ? and likes.like_type = ?',params[:like_id],params[:like_type]]).joins(:likes)
-end
 respond_to  do |format|
       format.html
       format.js
     end
+end
+def share
+ @share=Like.create(:post_id=>params[:post_id],:user_id=>current_user.id  )
+end
 end

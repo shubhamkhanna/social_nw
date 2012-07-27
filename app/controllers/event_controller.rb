@@ -5,7 +5,7 @@ def create_event
   if request.post?
    params[:event][:eventusers_attributes].delete_if { |item| item[:user_id]=="0" }
     @event=Event.create(params[:event])
-   # alert("event created successfully.")
+  
   end
 
 
