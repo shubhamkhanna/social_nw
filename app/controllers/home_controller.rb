@@ -57,6 +57,27 @@ respond_to  do |format|
     end
 end
 def share
- @share=Like.create(:post_id=>params[:post_id],:user_id=>current_user.id  )
+@share=Share.create(:post_id=>params[:post_id],:user_id=>current_user.id)
+  
+    #@post=Post.create(:user_id=>current_user.id,:message=>params[:message] )
+ # users = []
+#    users << current_user.id
+#    users << current_user.friends.map(&:friend_id)
+#    users.flatten!
+#    @shares=Share.user_friends_post(users)
+respond_to  do |format|
+      format.html
+      format.js
+    end
+
+  end
+def share_people
+@post=Post.find params[:post]
+
+
+  respond_to  do |format|
+      format.html
+      format.js
+    end
 end
 end

@@ -17,7 +17,12 @@
 
   match "event/event_list" => "event#event_list", :as=>"event_list"
   match "event/destroy/:id" => "event#destroy"
-   match "home/share" => "home#share"
+  match "home/share/:post_id" => "home#share",:as=>"home_share"
+  match "home/share_people" => "home#share_people",:as=>"share_people"
+
+
+
+
     #  match "home/comment/:post_id" =>"home#comment", :as =>"comment"
   #match "users/show" => "users#show"
   #match "home/index" => "home#index"

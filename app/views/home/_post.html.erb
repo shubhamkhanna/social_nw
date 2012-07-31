@@ -5,8 +5,12 @@
 <span id="post_like_form_<%=post.id%>">
 <%=render :partial=>"like",:locals=>{:post=>post,:like_type=>"Post"}%>
 </span>
-<span id="post_share_form">
-<%=render :partial=>"share",:locals=>{:post=>post}%>
+
+<%unless (post.user_id==current_user.id)%>
+<%=link_to "share",home_share_path(:post_id=>post.id),:remote=>true%>
+<%end%>
+<span id="post_share_form<%=post.id%>">
+<%#=render :partial=>"share",:locals=>{:post=>post}%>
 </span>
 <div id="comment_form_<%= post.id %>" style="display: none">
   <%= render :partial => "comment_form", :locals => {:comment => post.comments.build, :post_id => post.id}  %>
