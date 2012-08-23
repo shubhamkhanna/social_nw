@@ -7,14 +7,11 @@ def create_event
     @event=Event.create(params[:event])
   
   end
-
-
-
-
 end
 def event_list
  @event_list=Event.find(current_user.eventusers.map(&:event_id))
-
+@list=Event.paginate :page=>params[:page],:order=>'craeted_at DESC',
+                   :per_page=>10
 end
 def destroy
 #@event=current_user.eventusers.find()

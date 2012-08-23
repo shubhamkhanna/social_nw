@@ -21,10 +21,16 @@ if current_user.valid_password?(params[:user][:old_password])
    puts "shubham*********************"
    flash[:notice]="password changed successfully"
         else
-     flash[:notice]="password change is unsuccessful"
+    flash[:notice]="password changed is unsuccessfully"
+
     end
-   end
- end
+   else
+      redirect_to edit_profile_path(current_user)
+        flash[:notice]="New and conform password not match !!!!!!!!"
+      end
+
+
+    end
 end
 
   end

@@ -32,6 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Token authenticatable
       # t.string :authentication_token
+      #declare by us
       t.string :firstname,:middlename,:lastname,:address,:sex
       t.string  :sconame,:scoaddress
       t.integer :age,:phno

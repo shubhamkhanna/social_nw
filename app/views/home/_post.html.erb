@@ -7,11 +7,14 @@
 </span>
 
 <%unless (post.user_id==current_user.id)%>
-<%=link_to "share",home_share_path(:post_id=>post.id),:remote=>true%>
+<%=link_to "share",home_share_path(:post_id=>post.id,:message=>post.message),:remote=>true%>
 <%end%>
 <span id="post_share_form<%=post.id%>">
-<%#=render :partial=>"share",:locals=>{:post=>post}%>
+
+<%#=render :partial=>"post",:locals=>{:post=>post}%>
 </span>
+
+
 <div id="comment_form_<%= post.id %>" style="display: none">
   <%= render :partial => "comment_form", :locals => {:comment => post.comments.build, :post_id => post.id}  %>
 </div>
@@ -33,4 +36,5 @@
 </script>
 
 
-<hr></hr>
+<hr>
+</hr>

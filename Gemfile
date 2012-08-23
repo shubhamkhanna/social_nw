@@ -11,6 +11,8 @@ gem 'therubyracer'
 gem  'devise'
 gem 'paperclip'
 gem 'jquery_datepicker'
+gem 'will_paginate', '>= 3.0.pre'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

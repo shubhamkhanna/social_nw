@@ -12,6 +12,7 @@
 def all_friends
 @friends=User.find(current_user.friends.map(&:friend_id))
 end
+
 def mutual
   @user= User.find(params[:id])
 users = []

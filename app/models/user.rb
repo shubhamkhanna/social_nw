@@ -18,5 +18,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,:firstname,:middlename,:lastname, :age, :dob, :phno, :address, :sconame, :scoaddress,:avtar,:event_id, :user_id
   # attr_accessible :title, :body
 has_attached_file :avtar, :styles => 
-  { :medium => "300x300>", :thumb => "300x300>",:small=>"50x50" }
+  { :medium => "300x300>", :thumb => "100x100>",:small=>"50x50>" }
 end

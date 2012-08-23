@@ -3,7 +3,7 @@
 <th1>All Friends</th1>
 <tr>
   <td>
-<div id ="select_friend_form">
+<div id ="select_friend_form"></div>
 <%@friends.each do |friend|%>
 <%=render :partial=>"friends/all_friends",:locals=>{:friend=>friend},:remote=>true%><br/>
  <%@cnt=@friends.count%>
